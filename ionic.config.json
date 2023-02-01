@@ -1,0 +1,7 @@
+{
+  "name": "fit-deck",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
