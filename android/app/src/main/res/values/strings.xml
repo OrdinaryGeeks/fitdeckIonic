@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">fit-deck</string>
+    <string name="title_activity_main">fit-deck</string>
+    <string name="package_name">io.ionic.starter</string>
+    <string name="custom_url_scheme">io.ionic.starter</string>
+
+    <string name="facebook_app_id">1280723378764559</string>
+    <string name="facebook_client_token">4ea5df829dd719bbf135fecedaf8d8f2</string>
+  </resources>

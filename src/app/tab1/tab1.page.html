@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Hello
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,85 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Hello</ion-title>
     </ion-toolbar>
   </ion-header>
 
+  
+  <input type="text" [(ngModel)]="newCategory" name="newCategory" id="newCategory">
+  <ion-button (click)="addCategory()">Add Category</ion-button>
+
+  <div>Select a category and add an exercise</div>
+
+  <input type="text" [(ngModel)]="newExercise" name="newExercise" id="newExercise">
+  <ion-button (click)="addCategory()">Add Category</ion-button>
   <app-explore-container name="Tab 1 page"></app-explore-container>
+
+
+
+<ion-grid>
+
+  <ion-row>
+    <ion-button (click)="loginWithFB()">Profile</ion-button>
+  </ion-row>
+    </ion-grid>
+  
+  
+  
+    <div *ngIf="isSignUp">
+      <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+  
+  
+    
+        <input type="text" [(ngModel)]="motto" name="motto"/>
+        <label>Motto</label>
+        <input type="text" [(ngModel)]="teamApplication" name="teamApplication"/> <label>Team to Apply to</label>
+  
+        <button type="submit" class="btn btn-success">{{formButton}}</button>
+      </form>
+  
+  
+  
+      </div>
+      <div *ngIf="isLoggedIn">
+        
+        <h2>isloggedin</h2>
+    <ion-button>{{email2}}</ion-button>
+    <h2>{{userID}}</h2>
+    <img src="{{photoURL}}" width="500" />
+    <h2>{{motto}}</h2>
+    <h2>{{teamApplication}}</h2>
+      </div>
+  <div *ngIf="isAdmin">
+
+    <ion-button (click)="toggleCategory()">Categories</ion-button>
+    <ion-button (click)="toggleTeams()">Teams</ion-button>
+    <ion-button (click)="toggleExercise()">Exercises</ion-button>
+    <ion-button (click)="toggleClients()">Clients</ion-button>
+  </div>
+  <div *ngIf="isShowCategory">
+    <div>
+    <select [(ngModel)]="chosenCategory"> 
+      <option *ngFor="let cat of Categories" [value]="cat.id">{{cat.category}}</option>
+  </select>
+</div>
+<div>
+  <input type="text" id="newCategory" name="newCategory" [(ngModel)]="newCategory">
+  <ion-button (click)="addCategory()">Add Category</ion-button>
+</div>
+<div>
+  <input type="text" id="newExercise" name="newExercise" [(ngModel)]="newExercise">
+  <ion-button (click)="addExercise()">Add Exercise To Category</ion-button>
+</div>
+  </div>
+  <div *ngIf="isShowClient">
+    <select [(ngModel)]="chosenClient"> 
+      <option *ngFor="let client of Clients" [value]="client">{{client.userName}}</option>
+  </select>
+  <select [(ngModel)]="chosenTeam"> 
+    <option *ngFor="let team of Teams" [value]="team">{{team.name}}</option>
+</select>
+<ion-button (click)="assignClientToTeam()">Assign To Team</ion-button>
+</div>
+
 </ion-content>
